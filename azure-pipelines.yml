@@ -1,0 +1,28 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+jobs:
+  - job: job1
+    steps:
+    - task: TriggerBuild@3
+      inputs:
+        definitionIsInCurrentTeamProject: true
+        buildDefinition: 
+        queueBuildForUserThatTriggeredBuild: true
+        ignoreSslCertificateErrors: false
+        useSameSourceVersion: false
+        useCustomSourceVersion: false
+        useSameBranch: true
+        waitForQueuedBuildsToFinish: false
+        storeInEnvironmentVariable: false
+        authenticationMethod: 'Personal Access Token'
+        enableBuildInQueueCondition: false
+        dependentOnSuccessfulBuildCondition: false
+        dependentOnFailedBuildCondition: false
+        checkbuildsoncurrentbranch: false
+        failTaskIfConditionsAreNotFulfilled: false
